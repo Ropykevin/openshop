@@ -11,7 +11,7 @@ const Payment = () => {
     useEffect(() => {
         const fetchSales = async () => {
             try {
-                const response = await axios.get('http://209.38.36.208/unpaid_sales', {
+                const response = await axios.get('http://127.0.0.1:8000/unpaid_sales', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -22,12 +22,12 @@ const Payment = () => {
                 // Handle error fetching sales, perhaps setSales([]) or show an error message
             }
         };
-
+        
 
         if (token) {
             fetchSales();
         }
-
+        
     }, [token]);
 
 
@@ -40,7 +40,7 @@ const Payment = () => {
 
         setIsLoading(true);
         try {
-            const response = await axios.post('http://209.38.36.208/payments', { payment_method: paymentMethod }, {
+            const response = await axios.post('http://127.0.0.1:8000/payments', { payment_method: paymentMethod }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -57,7 +57,7 @@ const Payment = () => {
 
     const downloadReceipt = async () => {
         try {
-            const response = await axios.get(`http://209.38.36.208/receipts/${receiptLink}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/receipts/${receiptLink}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

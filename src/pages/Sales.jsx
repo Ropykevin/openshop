@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Sales = () => {
-    const navigate = useNavigate()
+    const navigate=useNavigate()
     const [sales, setSales] = useState([]);
     const [formData, setFormData] = useState({
         pid: 0,
@@ -21,7 +21,7 @@ const Sales = () => {
                     throw new Error('Access token not found');
                 }
 
-                const response = await axios.get('http://209.38.36.208/sales', {
+                const response = await axios.get('http://127.0.0.1:8000/sales', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -40,7 +40,7 @@ const Sales = () => {
                     throw new Error('Access token not found');
                 }
 
-                const response = await axios.get('http://209.38.36.208/products', {
+                const response = await axios.get('http://127.0.0.1:8000/products', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -72,7 +72,7 @@ const Sales = () => {
                 throw new Error('Access token not found');
             }
 
-            await axios.post('http://209.38.36.208/sales', formData, {
+            await axios.post('http://127.0.0.1:8000/sales', formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -80,8 +80,8 @@ const Sales = () => {
 
             alert('Sale created successfully');
             navigate('/payments')
-            setSales((prevSales) => [...prevSales, formData]);
-
+            setSales((prevSales) => [...prevSales, formData]); 
+            
             closeModal();
         } catch (error) {
             console.error('Error creating sale:', error);
