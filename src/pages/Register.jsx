@@ -24,7 +24,7 @@ const RegisterPage = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('http://209.38.36.208/register', formData);
+			const response = await axios.post('http://127.0.0.1:8000/register', formData);
 			console.log('Registration successful:', response.data);
 			navigate("/login");
 		} catch (error) {
