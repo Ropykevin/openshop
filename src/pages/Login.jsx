@@ -23,7 +23,7 @@ const LoginPage = () => {
         e.preventDefault();
 
         try {
-            const apiUrl = 'http://127.0.0.1:8000/login';
+            const apiUrl = 'http://209.38.36.208/login';
             const response = await axios.post(
                 apiUrl,
                 {

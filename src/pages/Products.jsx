@@ -20,7 +20,7 @@ const Products = () => {
 
 	const fetchProducts = async () => {
 		try {
-			const response = await axios.get('http://127.0.0.1:8000/products', {
+			const response = await axios.get('http://209.38.36.208/products', {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -46,7 +46,7 @@ const Products = () => {
 				console.error('No token found');
 				return;
 			}
-			const response = await axios.post('http://127.0.0.1:8000/products', formData, {
+			const response = await axios.post('http://209.38.36.208/products', formData, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 					'Content-Type': 'application/json',
